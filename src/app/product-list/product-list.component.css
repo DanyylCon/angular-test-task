@@ -1,15 +1,14 @@
-.product-names-table{
-    width: 10em;
+h1{
+    text-align: center;
 }
-
 .table-header{
     border: solid 1px hsl(0, 0%, 0%);
     background-color: rgb(101, 101, 255);
     text-align: center;
 }
 
-.isSelected{
-    color: red;
+.highlight{
+    background-color: rgb(101, 101, 255);
 }
 
 tr{

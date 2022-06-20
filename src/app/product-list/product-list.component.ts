@@ -10,24 +10,38 @@ import { ProductsService } from '../services/products.service';
 export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
+
   selectedProduct: Product = new Product;
   selected: boolean = false;
-  
-  
+  selectedId: number = 0;
+
+
 
   constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
 
-    this.productsService.getProducts().subscribe( data => {
+    this.productsService.getProducts().subscribe(data => {
       this.products = data;
     });
 
   }
 
+
   toggleSelected(product: Product): void{
+
     this.selected = !this.selected;
-    this.selectedProduct = product; 
+    
+    
+    if(this.selected){
+      this.selectedProduct = product;
+      this.selectedId = product.ProductId;
+    }else{
+      this.selectedId = 0;
+    }
+    
+    console.log(this.selectedId); 
+    
   }
 
   checkNull(item: any): any{

@@ -1,18 +1,19 @@
+<h1>Data</h1>
 <div class="container" >
     <div class="row">
-        <div class="col">   
-            <table class="product-names-table">
+          
+            <table class="col-6">
                 <thead>
                     <th class="table-header">Products</th>
                 </thead>
 
                 <tbody class="product-names" *ngFor="let product of products">
-                    <tr (click)="toggleSelected(product)">{{product.ProductId}}</tr>
+                    <tr [class.highlight] = 'product.ProductId == selectedId' (click)="toggleSelected(product)">{{product.ProductId}}</tr>
                 </tbody>
             </table>     
-        </div>
-
-        <div *ngIf="selected" class="col product-descriptions">
+       
+        
+        <div *ngIf="selected" class="col-6">
             
                 <table>
                     <thead>
