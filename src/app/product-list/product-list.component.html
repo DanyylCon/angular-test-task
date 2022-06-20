@@ -1,1 +1,19 @@
-<p>product-list works!</p>
+<div class="product-list-container" *ngFor="let product of products">
+    <section class="product-names">
+        <div class="product-item" >
+            <div>{{product.ProductId}}</div>
+        </div>
+    </section>
+    <section *ngIf="selected" class="product-descriptions">
+        <p>ProductId: {{product.ProductId}}</p>
+        <p>  ColorIdx: {{product.ColorIdx}}</p>
+        <p> ProductCode: {{product.ProductCode}}</p>
+        <p> ProductDescription: {{product.ProductDescription}}</p>
+        <p> Price: {{product.Price}}</p>
+        <p> VoDatum: {{product.VoDatum}}</p>
+        <p> IsHeavy: {{product.IsHeavy}}</p>
+        <p> RestrictedLands: {{product.RestrictedLands}}</p>
+        <p> IsFsk: {{product.IsFsk}}</p>
+        <p> IsOrdergruppeC: {{product.IsOrdergruppeC}}</p>
+    </section>
+</div>
