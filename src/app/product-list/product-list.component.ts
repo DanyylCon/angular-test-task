@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
   selectedProduct: Product = new Product;
   selected: boolean = false;
   
+  
 
   constructor(private productsService: ProductsService) { }
 
@@ -26,8 +27,15 @@ export class ProductListComponent implements OnInit {
 
   toggleSelected(product: Product): void{
     this.selected = !this.selected;
-    this.selectedProduct = product;
-    console.log(this.selectedProduct);
+    this.selectedProduct = product; 
+  }
+
+  checkNull(item: any): any{
+    if(item === null) {
+      return "it's unknown"
+    }else{
+      return item;
+    }
   }
 
 }

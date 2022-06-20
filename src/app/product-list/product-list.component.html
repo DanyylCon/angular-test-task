@@ -1,24 +1,71 @@
 <div class="container" >
     <div class="row">
-        <div class="col">
-            <section class="product-names" *ngFor="let product of products">    
-                <div class="product-item" (click)="toggleSelected(product)">{{product.ProductId}}</div>    
-            </section>
+        <div class="col">   
+            <table class="product-names-table">
+                <thead>
+                    <th class="table-header">Products</th>
+                </thead>
+
+                <tbody class="product-names" *ngFor="let product of products">
+                    <tr (click)="toggleSelected(product)">{{product.ProductId}}</tr>
+                </tbody>
+            </table>     
         </div>
-        <div class="col">
-            <section *ngIf="selected" class="product-descriptions">
-                <p>ProductId: {{selectedProduct.ProductId}}</p>
-                <p>  ColorIdx: {{selectedProduct.ColorIdx}}</p>
-                <p> ProductCode: {{selectedProduct.ProductCode}}</p>
-                <p> ProductDescription: {{selectedProduct.ProductDescription}}</p>
-                <p> Price: {{selectedProduct.Price}}</p>
-                <p> VoDatum: {{selectedProduct.VoDatum}}</p>
-                <p> IsHeavy: {{selectedProduct.IsHeavy}}</p>
-                <p> RestrictedLands: {{selectedProduct.RestrictedLands}}</p>
-                <p> IsFsk: {{selectedProduct.IsFsk}}</p>
-                <p> IsOrdergruppeC: {{selectedProduct.IsOrdergruppeC}}</p>
-                <button class="btn btn-primary" (click)="toggleSelected(selectedProduct)">Close</button>
-            </section>
+
+        <div *ngIf="selected" class="col product-descriptions">
+            
+                <table>
+                    <thead>
+                        <th colspan="2" class="table-header">Product Details</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ProductId: </td>
+                            <td>{{selectedProduct.ProductId}}</td>
+                        </tr>
+                        <tr>
+                            <td>ColorIdx: </td>
+                            <td>{{selectedProduct.ColorIdx}}</td>
+                        </tr>
+                        <tr>
+                            <td>ProductCode: </td>
+                            <td>{{selectedProduct.ProductCode}}</td>
+                        </tr>
+                        <tr>
+                            <td>ProductDescription: </td>
+                            <td>{{selectedProduct.ProductDescription}}</td>
+                        </tr>
+                        <tr>
+                            <td>Price: </td>
+                            <td>{{selectedProduct.Price}}</td>
+                        </tr>
+                        <tr>
+                            <td>VoDatum: </td>
+                            <td>{{checkNull(selectedProduct.VoDatum)}}</td>
+                        </tr>
+                        <tr>
+                            <td>IsHeavy: </td>
+                            <td>{{selectedProduct.IsHeavy}}</td>
+                        </tr>
+                        <tr>
+                            <td>RestrictedLands: </td>
+                            <td>{{checkNull(selectedProduct.RestrictedLands)}}</td>
+                        </tr>
+                        <tr>
+                            <td>IsFsk: </td>
+                            <td>{{selectedProduct.IsFsk}}</td>
+                        </tr>
+                        <tr>
+                            <td>IsOrdergruppeC: </td>
+                            <td>{{selectedProduct.IsOrdergruppeC}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button class="btn btn-primary" (click)="toggleSelected(selectedProduct)">Close</button></td>
+                        </tr>
+                    </tbody>
+                </table>
         </div>
+
     </div>
 </div>
