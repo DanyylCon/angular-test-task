@@ -10,7 +10,9 @@ import { ProductsService } from '../services/products.service';
 export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
+  selectedProduct: Product = new Product;
   selected: boolean = false;
+  
 
   constructor(private productsService: ProductsService) { }
 
@@ -20,6 +22,12 @@ export class ProductListComponent implements OnInit {
       this.products = data;
     });
 
+  }
+
+  toggleSelected(product: Product): void{
+    this.selected = !this.selected;
+    this.selectedProduct = product;
+    console.log(this.selectedProduct);
   }
 
 }
